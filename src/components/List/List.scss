@@ -1,5 +1,18 @@
 .list {
   margin-bottom: 30px;
+  &__add-button {
+    svg,
+    span {
+      opacity: 0.4;
+    }
+
+    &:hover {
+      svg,
+      span {
+        opacity: 1;
+      }
+    }
+  }
 
   li {
     display: flex;
