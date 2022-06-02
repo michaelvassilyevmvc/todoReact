@@ -4,7 +4,7 @@
   outline: none;
   list-style: none;
   font-family: "Roboto", sans-serif;
-  box-sizing: content-box;
+  // box-sizing: content-box;
 }
 
 body {
@@ -36,8 +36,8 @@ body {
 }
 
 .field {
-  background: #FFFFFF;
-  border: 1px solid #EFEFEF;
+  background: #ffffff;
+  border: 1px solid #efefef;
   border-radius: 4px;
   box-sizing: border-box;
   padding: 8px 12px;
@@ -45,5 +45,22 @@ body {
 
   &:focus {
     border-color: #dbdbdb;
+  }
+}
+
+.button {
+  background: #4dd599;
+  border-radius: 4px;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+
+  &:hover {
+    background: darken(#4dd599, 6%);
+  }
+
+  &:active {
+    background: darken(#4dd599, 10%);
   }
 }

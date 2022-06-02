@@ -2,6 +2,8 @@ import React from "react";
 import List from "./components/List";
 import AddButtonList from "./components/AddList";
 
+import DB from "./assets/db.json";
+
 function App() {
   let [value, setValue] = React.useState("Hello, World");
 
@@ -55,7 +57,7 @@ function App() {
           ]}
           isRemovable
         ></List>
-        <AddButtonList></AddButtonList>
+        <AddButtonList colors={DB.colors}></AddButtonList>
       </div>
       <div className="todo__tasks"></div>
     </div>

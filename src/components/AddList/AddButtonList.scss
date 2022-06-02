@@ -1,10 +1,29 @@
 .add-list {
   &__popup {
-    height: calc(150px - 36px);
-    background: #FFFFFF;
+    height: calc(190px - 36px);
+    width: 240px;
+    background: #ffffff;
     box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.05);
     border-radius: 10px;
     padding: 18px;
+    box-sizing: border-box;
+
+    .button {
+      width: 100%;
+      margin-top: 15px;
+    }
+
+    &-colors {
+
+      margin-top: 15px;
+      
+
+      .badge {
+        width: 20px;
+        height: 20px;
+        position:static;
+      }
+    }
   }
 
   .list {
