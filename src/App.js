@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useState} from "react";
 import List from "./components/List";
 import AddButtonList from "./components/AddList";
 
 import DB from "./assets/db.json";
 
 function App() {
-  let [value, setValue] = React.useState("Hello, World");
+
+const [lists,setLists] = useState([])
 
   return (
     <div className="todo">
@@ -33,28 +34,12 @@ function App() {
           ]}
         ></List>
         <List
-          items={[
-            {
-              color: "green",
-              name: "Покупки",
-            },
-            {
-              color: "blue",
-              name: "Фронтенд",
-            },
-            {
-              color: "pink",
-              name: "Фильмы и сериалы",
-            },
-            {
-              color: "salad",
-              name: "Книги",
-            },
-            {
-              color: "grey",
-              name: "Личное",
-            },
-          ]}
+          items={DB.lists.map((item) => {
+            item.color = DB.colors.filter(
+              (color) => color.id === item.colorId
+            )[0].name;
+            return item;
+          })}
           isRemovable
         ></List>
         <AddButtonList colors={DB.colors}></AddButtonList>
