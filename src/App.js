@@ -1,12 +1,25 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import List from "./components/List";
 import AddButtonList from "./components/AddList";
+import Tasks from "./components/Tasks";
 
 import DB from "./assets/db.json";
 
 function App() {
+  const [lists, setLists] = useState(
+    DB.lists.map((item) => {
+      item.color = DB.colors.filter(
+        (color) => color.id === item.colorId
+      )[0].name;
+      return item;
+    })
+  );
 
-const [lists,setLists] = useState([])
+  const onAddList = (obj) => {
+    const newLists = [...lists, obj];
+
+    setLists(newLists);
+  };
 
   return (
     <div className="todo">
@@ -34,17 +47,17 @@ const [lists,setLists] = useState([])
           ]}
         ></List>
         <List
-          items={DB.lists.map((item) => {
-            item.color = DB.colors.filter(
-              (color) => color.id === item.colorId
-            )[0].name;
-            return item;
-          })}
+          items={lists}
+          onRemove={(list) => {
+            console.log(list);
+          }}
           isRemovable
         ></List>
-        <AddButtonList colors={DB.colors}></AddButtonList>
+        <AddButtonList onAdd={onAddList} colors={DB.colors}></AddButtonList>
       </div>
-      <div className="todo__tasks"></div>
+      <div className="todo__tasks">
+        <Tasks></Tasks>
+      </div>
     </div>
   );
 }
