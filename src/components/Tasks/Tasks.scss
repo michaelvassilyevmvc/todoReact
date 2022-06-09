@@ -24,6 +24,8 @@
     &-row {
       display: flex;
       align-items: center;
+      margin-bottom: 15px;
+
       input {
         margin-left: 15px;
         border: none;
@@ -39,9 +41,9 @@
 
     svg {
       transition: opacity 0.15s ease-in-out;
-        path {
-          stroke: #949292ef;
-        }
+      path {
+        stroke: #949292ef;
+      }
     }
 
     input:checked + label {
